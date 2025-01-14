@@ -21,3 +21,13 @@
 
 3. 点击申请即可：
 > ![alt text](image-1.png)
+
+## 如何得知申请成功以及失败？
+
+访问：`https://mail.cuit.edu.cn/` 即可查看邮箱是否申请成功
+
+:::warn
+这里要选择 stu.cuit.edu.cn 登录，而不是 cuit.edu.cn
+:::
+
+![alt text](image-3.png)
