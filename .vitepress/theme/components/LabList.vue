@@ -4,14 +4,12 @@
       <span style="font-size: 2rem; font-weight: 600"> CUIT 技术社团 </span>
       <span style="font-size: 1rem; color: #666; margin-top: 10px">
         如需加入，请自行提交pr/联系Epoch开发实验室~
-        <span
-          style="
+        <span style="
             font-size: 1rem;
             color: #2563eb;
             margin-top: 10px;
             cursor: pointer;
-          "
-          @click="
+          " @click="
             copyToClipboard({
               name: '',
               shortName: '',
@@ -22,32 +20,24 @@
               description: '',
               link: '',
             })
-          "
-        >
+            ">
           (点击获取格式)
         </span>
       </span>
     </div>
     <div class="labs">
       <div v-for="(lab, index) in labs" :key="index" class="lab-item">
-        <div
-          class="card"
-          :class="{ 'is-flipped': flippedCards[index] }"
-          @mouseenter="toggleCard(index)"
-          @mouseleave="toggleCard(index)"
-        >
+        <div class="card" :class="{ 'is-flipped': flippedCards[index] }" @mouseenter="toggleCard(index)"
+          @mouseleave="toggleCard(index)">
           <!-- 卡片正面 -->
           <div class="card-face">
-            <div
-              class="card-decorator"
-              :style="{
-                backgroundImage: `url(${getAvatar(lab.QQ)})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'center',
-                opacity: 0.1,
-                filter: 'blur(5px)',
-              }"
-            ></div>
+            <div class="card-decorator" :style="{
+              backgroundImage: `url(${getAvatar(lab.QQ)})`,
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              opacity: 0.1,
+              filter: 'blur(5px)',
+            }"></div>
             <div class="face-content">
               <div class="avatar-container">
                 <img class="avatar" :src="getAvatar(lab.QQ)" alt="" />
@@ -60,11 +50,7 @@
               </div>
 
               <div class="tech-stack">
-                <span
-                  v-for="(tech, i) in lab.technologyStack.slice(0, 4)"
-                  :key="i"
-                  class="tech-badge"
-                >
+                <span v-for="(tech, i) in lab.technologyStack.slice(0, 4)" :key="i" class="tech-badge">
                   {{ tech }}
                 </span>
               </div>
@@ -75,15 +61,12 @@
           <div class="card-back">
             <div class="back-content">
               <div class="back-header">
-                <div
-                  class="lab-initials"
-                  :style="{
-                    background: getGradient(lab.name),
-                    backgroundImage: `url(${getAvatar(lab.QQ)})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                  }"
-                ></div>
+                <div class="lab-initials" :style="{
+                  background: getGradient(lab.name),
+                  backgroundImage: `url(${getAvatar(lab.QQ)})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                }"></div>
                 <h3 class="lab-title">{{ lab.name }}</h3>
               </div>
 
@@ -92,8 +75,7 @@
                   <div class="info-icon college-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path
-                        d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"
-                      />
+                        d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z" />
                     </svg>
                   </div>
                   <div class="info-text">
@@ -106,8 +88,7 @@
                   <div class="info-icon location-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path
-                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"
-                      />
+                        d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                     </svg>
                   </div>
                   <div class="info-text">
@@ -120,28 +101,33 @@
                   <div class="info-icon qq-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                       <path
-                        d="M12.003 2c-5.518 0-9.998 4.48-9.998 9.997 0 5.518 4.48 9.998 9.998 9.998 5.517 0 9.997-4.48 9.997-9.998 0-5.517-4.48-9.997-9.997-9.997zm2.53 13.172a.57.57 0 01-.285-.113 7.92 7.92 0 01-.571-.454c-.269.342-.56.674-.866.996a6.64 6.64 0 01-.865.71 2.34 2.34 0 01-.543.287.396.396 0 01-.258-.059.428.428 0 01-.143-.198 1.88 1.88 0 01-.042-.739c.022-.134.056-.265.099-.393.039-.111.094-.243.163-.395a.42.42 0 00.057-.216.326.326 0 00-.072-.175.295.295 0 00-.131-.101 1.103 1.103 0 00-.275-.039l-.566-.029c-.263-.018-.504-.068-.728-.15a1.678 1.678 0 01-.557-.312 1.213 1.213 0 01-.358-.503 1.964 1.964 0 01-.128-.729c0-.312.083-.604.247-.877a2.87 2.87 0 01.612-.732c.25-.21.524-.381.827-.514.178-.078.35-.139.517-.183.166-.042.33-.065.491-.065l.353.007c.122.011.242.030.358.057a2.93 2.93 0 01.572.202c.262.122.495.275.698.459.169.154.295.32.378.498.082.179.124.373.124.582a.86.86 0 01-.081.386.694.694 0 01-.209.262.945.945 0 01-.282.15 2.966 2.966 0 01-.315.097c.162.064.308.141.437.232.128.091.229.198.303.32.072.122.108.265.108.429 0 .132-.023.253-.068.364a.986.986 0 01-.152.265z"
-                      />
+                        d="M12.003 2c-5.518 0-9.998 4.48-9.998 9.997 0 5.518 4.48 9.998 9.998 9.998 5.517 0 9.997-4.48 9.997-9.998 0-5.517-4.48-9.997-9.997-9.997zm2.53 13.172a.57.57 0 01-.285-.113 7.92 7.92 0 01-.571-.454c-.269.342-.56.674-.866.996a6.64 6.64 0 01-.865.71 2.34 2.34 0 01-.543.287.396.396 0 01-.258-.059.428.428 0 01-.143-.198 1.88 1.88 0 01-.042-.739c.022-.134.056-.265.099-.393.039-.111.094-.243.163-.395a.42.42 0 00.057-.216.326.326 0 00-.072-.175.295.295 0 00-.131-.101 1.103 1.103 0 00-.275-.039l-.566-.029c-.263-.018-.504-.068-.728-.15a1.678 1.678 0 01-.557-.312 1.213 1.213 0 01-.358-.503 1.964 1.964 0 01-.128-.729c0-.312.083-.604.247-.877a2.87 2.87 0 01.612-.732c.25-.21.524-.381.827-.514.178-.078.35-.139.517-.183.166-.042.33-.065.491-.065l.353.007c.122.011.242.030.358.057a2.93 2.93 0 01.572.202c.262.122.495.275.698.459.169.154.295.32.378.498.082.179.124.373.124.582a.86.86 0 01-.081.386.694.694 0 01-.209.262.945.945 0 01-.282.15 2.966 2.966 0 01-.315.097c.162.064.308.141.437.232.128.091.229.198.303.32.072.122.108.265.108.429 0 .132-.023.253-.068.364a.986.986 0 01-.152.265z" />
                     </svg>
                   </div>
+
                   <div class="info-text">
                     <div class="info-label">QQ群</div>
-                    <div
-                      class="info-value copy-value"
-                      @click="copyToClipboard(lab.QQ)"
-                    >
+                    <div class="info-value copy-value" @click="copyToClipboard(lab.QQ)">
                       {{ lab.QQ }}
                       <div class="copy-indicator">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          viewBox="0 0 24 24"
-                        >
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                           <path
-                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
-                          />
+                            d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z" />
                         </svg>
                       </div>
                     </div>
+                  </div>
+                </div>
+                <div v-if="lab.link" class="info-item link-item">
+                  <div class="info-icon link-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                      <path d="M14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z" />
+                      <path d="M19 19H5V5h7V3H5a2 2 0 00-2 2v14a2 2 0 002 2h14c1.1 0 2-.9 2-2v-7h-2v7z" />
+                    </svg>
+                  </div>
+                  <div class="info-text">
+                    <div class="info-label">官方网站</div>
+                    <a :href="lab.link" target="_blank" class="info-value">Click Me</a>
                   </div>
                 </div>
               </div>
@@ -161,11 +147,7 @@
     <Transition name="toast">
       <div v-if="showToast" class="toast">
         <div class="toast-content">
-          <svg
-            class="toast-icon"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-          >
+          <svg class="toast-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
             <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z" />
           </svg>
           <span>{{ toastMessage }}</span>
@@ -176,7 +158,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 // 控制卡片翻转状态
 const flippedCards = ref({});
@@ -247,97 +229,32 @@ function getAvatar(qq) {
 
 // 实验室数据
 const labs = ref([
-  {
-    name: "Epoch开发实验室",
-    shortName: "Epoch",
-    technologyStack: ["前端", "后端", "产品"],
-    college: "计算机学院",
-    location: "5教5202",
-    QQ: "834932567",
-    description: "专注于Web应用开发和用户体验设计的创新实验室",
-    link: "#",
-  },
-  {
-    name: "Syclover-技术小组",
-    technologyStack: ["web 安全", "二进制安全", "密码学"],
-    college: "网络空间安全学院",
-    location: "成都信息工程大学",
-    QQ: "299800736",
-    description:
-      "三叶草小组主要是一群志同道合的伙伴一起学习安全知识，钻研黑客技术，小组致力于成为国内实力强劲和拥有广泛影响力的安全研究团队",
-    link: "https://www.sycsec.com/",
-  },
-
-  {
-    name: "ACM算法实验室",
-    technologyStack: ["Java", "Python", "C", "C#"],
-    college: "计算机学院",
-    location: "双中心 B 座 504 与 511",
-    QQ: "758762821",
-    description:
-      "ACM 实验室，依托程序设计竞赛，旨在培养大学生创新能力、团队精神和在压力下编写程序、分析和解决问题的能力",
-    link: "#",
-  },
-  {
-    name: "MetaCrypto实验室",
-    technologyStack: ["web", "pwn", "re", "crypto", "合约审计与开发", "move"],
-    college: "区块链学院",
-    location: "成都信息工程大学",
-    QQ: "974922603",
-    description:
-      "我们积极为 web3 的发展做出贡献，开设与 sui 链共同开设 move 共学营",
-    link: "#",
-  },
-  {
-    name: "学生机器人爱好者协会",
-    technologyStack: ["硬件", "软件"],
-    college: "计算机学院",
-    location: "成都信息工程大学",
-    QQ: "957230531",
-    description:
-      "机协是以参加各类学科竞赛为主的科技类社团，在校内主要管理的比赛是全国大学生智能汽车竞赛",
-    link: "#",
-  },
-  {
-    name: "Async开发实验室",
-    technologyStack: ["前端", "后端", "移动端", "产品"],
-    college: "网络空间安全学院",
-    location: "双中心 B413",
-    QQ: "308022463",
-    description:
-      " Async 能将一群有着共同目标，共同爱好的你们聚集在一起，创造出大学里最美好的回忆！ Async 希望大家将写代码看作一件快乐无比的事情，希望大家能无悔于大学四年拼搏的汗水！",
-    link: "#",
-  },
-  {
-    name: "道格安全研究实验室",
-    technologyStack: ["web 安全"],
-    college: "网络空间安全学院",
-    location: "成都信息工程大学",
-    QQ: "966299275",
-    description:
-      "道格安全研究实验室，致力于为学生提供一个学习、交流和实践的平台，帮助学生掌握前沿的开发技术，提升个人能力",
-    link: "",
-  },
-  {
-    name: "非同凡想游戏开发协会",
-    technologyStack: ["游戏开发"],
-    college: "计算机学院",
-    location: "成都信息工程大学",
-    QQ: "750598748",
-    description: "非同凡想游戏开发协会致力于打造游戏领域的高品质虚拟内容",
-    link: "",
-  },
-  {
-    name: "DSA 实验室",
-    technologyStack: ["算法", "数据结构"],
-    college: "计算机学院",
-    location: "成都信息工程大学",
-    QQ: "971929215",
-    description:
-      "DSA 全称 Data Structure & Algorithm（数据结构与算法），是由成都信息工程大学计算机学院建立，以参加各类程序设计竞赛为主的学生团队",
-    link: "https://www.yuque.com/books/share/58918979-3466-47fc-a492-e29a78cd5133?#。",
-  },
 ]);
+const loadLabs = async () => {
+  try {
+    const labModules = import.meta.glob('../../../src/data/labs/*.json');
+    const labData = [];
+    for (const path in labModules) {
+      const module = await labModules[path]();
+      labData.push(module.default);
+    }
+    labs.value = labData.sort((a, b) => {
+      const priorityNames = ["Epoch 开发实验室", "Syclover-技术小组"];
+      const aIndex = priorityNames.indexOf(a.name);
+      const bIndex = priorityNames.indexOf(b.name);
+      if (aIndex !== -1 && bIndex !== -1) {
+        return aIndex - bIndex;
+      }
+      if (aIndex !== -1) return -1;
+      if (bIndex !== -1) return 1;
+      return a.name.localeCompare(b.name);
+    }
+    );
+  } catch (error) {
+    console.error("加载资源失败", error);
+  }
+}
+onMounted(loadLabs);
 </script>
 
 <style scoped>
@@ -376,7 +293,7 @@ const labs = ref([
 .card {
   position: relative;
   width: 100%;
-  height: 360px;
+  height: 380px;
   cursor: pointer;
   perspective: 1000px;
 }
@@ -475,10 +392,12 @@ const labs = ref([
     transform: scale(1);
     opacity: 0.5;
   }
+
   50% {
     transform: scale(1.05);
     opacity: 0.3;
   }
+
   100% {
     transform: scale(1);
     opacity: 0.5;
@@ -571,6 +490,7 @@ const labs = ref([
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  overflow-y: auto;
 }
 
 .back-header {
@@ -658,6 +578,23 @@ const labs = ref([
 
 .qq-icon {
   background: linear-gradient(135deg, #ff5f6d, #ffc371);
+}
+
+/* 链接图标颜色 */
+.link-icon {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+}
+
+
+/* 链接文字样式 */
+.info-value a {
+  color: var(--vp-c-brand);
+  text-decoration: none;
+  word-break: break-all;
+}
+
+.info-value a:hover {
+  text-decoration: underline;
 }
 
 .info-text {

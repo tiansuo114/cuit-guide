@@ -7,6 +7,7 @@ export default defineConfig({
   lang: "zh-CN",
   ignoreDeadLinks: true, // 防止因死链而失败
   lastUpdated: true,
+
   head: [
     [
       "link",
@@ -65,7 +66,7 @@ export default defineConfig({
       collapsed: true,
       collapseDepth: 2,
       useFolderLinkFromIndexFile: true,
-      excludeFolders: ["vue-test"],
+      //excludeFolders: ["vue-test"],
       // documentRootPath: '/src',
       // scanStartPath: null,
       // basePath: null,

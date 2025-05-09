@@ -1,0 +1,10 @@
+{
+  "name": "MetaCrypto 实验室",
+  "shortName": "MetaCrypto",
+  "technologyStack": ["web", "pwn", "re", "crypto", "合约审计与开发", "move"],
+  "college": "区块链学院",
+  "location": "成都信息工程大学",
+  "QQ": "974922603",
+  "description": "我们积极为 web3 的发展做出贡献，开设与 sui 链共同开设 move 共学营",
+  "link": ""
+}
